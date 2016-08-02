@@ -27,7 +27,8 @@ Add a new customer: <input type="text" name="customerName" ng-model="formData.na
                 {{c.created_at | date : "mediumDate"}}
             </td>
             <td>
-                <a ng-click="cc.onCustDelete()" href="#/customers/{{c._id}}">Delete</a>
+                <!-- <a ng-click="cc.onCustDelete()" href="#/customers/{{c._id}}">Delete</a> -->
+                <button ng-click="cc.onCustDelete(c._id)" type="button" name="button"></button>
             </td>
         </tr>
     </tbody>

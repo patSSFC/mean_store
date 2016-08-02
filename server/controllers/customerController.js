@@ -21,5 +21,16 @@ module.exports = {
                 res.status(200).json(users);
             }
         })
+    },
+    deleteCustomer : function(req, res) {
+        console.log('inside delete function');
+        console.log(req.params);
+        Customer.findOneAndRemove({_id : req.params.c_id}, function(err, user) {
+            if(err) {
+                res.status(500).json(err);
+            } else {
+                res.status(200).json({message : "Customer account deleted!"})
+            }
+        })
     }
 }

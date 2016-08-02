@@ -9,17 +9,19 @@ meanStore.config(function($routeProvider) {
     })
     .when('/orders', {
         templateUrl: '../partials/order-view.html',
-        controller: 'OrderController'
+        controller: 'OrderController',
+        controllerAs: 'oc'
     })
     .when('/products', {
         templateUrl: '../partials/product-view.html',
-        controller: 'ProductController'
+        controller: 'ProductController',
+        controllerAs: 'pc'
     })
-    .when('/customers/:c_id', {
-        templateUrl: '../partials/customer-view.html',
-        controller: 'CustomerController',
-        controllerAs : 'cc'
-    })
+    // .when('/customers/:c_id', {
+    //     templateUrl: '../partials/customer-view.html',
+    //     controller: 'CustomerController',
+    //     controllerAs : 'cc'
+    // })
     .otherwise({
         redirectTo: '/index.html'
     })

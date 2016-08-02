@@ -1,0 +1,26 @@
+body {
+    width: 960px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+#new-product-contain {
+    width: 30%;
+    float: left;
+}
+
+#product-grid-contain {
+    width: 65%;
+    margin-left: 2%;
+    float: left;
+}
+
+#product-grid {
+    display: inline-grid;
+    grid-template-rows: 200px;
+    grid-template-columns: repeat(4, 150px);
+    grid-gap: 10px;
+}

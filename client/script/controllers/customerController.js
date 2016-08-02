@@ -7,32 +7,40 @@ meanStore.controller('CustomerController', function($scope, $location, $routePar
         console.log('on-submit');
         vm.error = false;
         customerFactory.newCustomer($scope.formData, function(data) {
-            console.log(data.status);
             if(data.status === 500) {
                 vm.error = true;
             }
-            customerFactory.getAllCustomers(function(data) {
-                if(data.status === 200) {
-                    console.log(data.data);
-                    vm.customers = data.data;
-                } else {
-                    console.log("weird error!");
-                }
-            })
+            getAllHelper();
         });
     }
 
-    vm.onCustDelete = function() {
-        var c_id = $routeParams.c_id;
-        console.log(c_id);
+    vm.onCustDelete = function(cust_id) {
+        var c_id = cust_id;
+        customerFactory.deleteCustomer(c_id, function(data) {
+            getAllHelper();
+        });
     }
 
-    customerFactory.getAllCustomers(function(data) {
-        if(data.status === 200) {
-            console.log(data.data);
-            vm.customers = data.data;
-        } else {
-            console.log("weird error!");
-        }
-    })
+    getAllHelper();
+    function getAllHelper() {
+        customerFactory.getAllCustomers(function(data) {
+            if(data.status === 200) {
+                console.log(data.data);
+                vm.customers = data.data;
+            } else {
+                console.log("weird error!");
+            }
+        })
+    }
+
+    // getAllHelper();
+
+    // customerFactory.getAllCustomers(function(data) {
+    //     if(data.status === 200) {
+    //         console.log(data.data);
+    //         vm.customers = data.data;
+    //     } else {
+    //         console.log("weird error!");
+    //     }
+    // })
 });

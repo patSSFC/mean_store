@@ -1,1 +1,31 @@
 <h1>products</h1>
+
+<div id="new-product-contain">
+
+    <h2>Add a new product!</h2>
+    <form id="new-product-form" action="index.html" method="post">
+        <input type="text" ng-model="formData.name" value="">
+        <textarea ng-model="formData.description" rows="8" cols="40"></textarea>
+        <input type="number" min="0" ng-model="formData.itemCount" value=""><br>
+        <button ng-click="pc.onProductSubmit()" type="button" name="button">Submit!</button>
+    </form>
+
+    <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+</div>
+
+<div id="product-grid-contain">
+    <div id="product-grid">
+        <div ng-repeat="product in pc.products">
+            <img src="images/flask.png" alt="test image" />
+            <p>
+                {{product.name}}
+            </p>
+            <p>
+                {{product.itemCount}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->

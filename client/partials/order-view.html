@@ -1,1 +1,52 @@
 <h1>Orders</h1>
+
+<h2>Add a new order!</h2>
+<form class="" action="index.html" method="post">
+    <fieldset>
+        Customer:
+        <select class="order-name" ng-model="formData._customer">
+            <option ng-repeat="customer in oc.customers" ng-value="customer._id">{{customer.name}}</option>
+        </select>
+        <!-- <select class="order-quantity" name="">
+            <option ng-repeat="product in oc.products">{{customer.name}}</option>
+        </select> -->
+        <select class="order-name" ng-model="formData._product">
+            <option ng-repeat="product in oc.products"  ng-value="product._id">{{product.name}}</option>
+        </select>
+        <input type="number" ng-model="formData.quantity" min="1" max="">
+        <button type="button" ng-click="oc.onOrderSubmit()">Submit Order</button>
+    </fieldset>
+</form>
+
+<table>
+    <thead>
+        <th>
+            Customer Name
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Order Date
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="order in oc.orders">
+            <td>
+                {{order._customer.name}}
+            </td>
+            <td>
+                {{order._product.name}}
+            </td>
+            <td>
+                {{order.quantity}}
+            </td>
+            <td>
+                {{order.created_at | date : "mediumDate"}}
+            </td>
+        </tr>
+    </tbody>
+</table>
